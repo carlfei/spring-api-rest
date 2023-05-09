@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="persistentStateService">
+    <option name="generatorProperties">
+      <GeneratorProperties>
+        <option name="commonProperties">
+          <CommonProperties>
+            <option name="author" value="s" />
+            <option name="databaseComboBoxValue" value="null" />
+            <option name="frameworkTypeComboBoxValue" value="MyBatis" />
+            <option name="frameworkTypeComboBoxValues">
+              <list>
+                <option value="MyBatis" />
+                <option value="TkMyBatis" />
+                <option value="MyBatisPlus" />
+              </list>
+            </option>
+            <option name="projectPath" value="$PROJECT_DIR$" />
+          </CommonProperties>
+        </option>
+        <option name="controllerProperties">
+          <ControllerProperties>
+            <option name="namePattern" value="%sController" />
+            <option name="packageName" value="" />
+            <option name="path" value="" />
+            <option name="selectedSwaggerCheckBox" value="true" />
+          </ControllerProperties>
+        </option>
+        <option name="entityProperties">
+          <EntityProperties>
+            <option name="exampleNamePattern" value="%sExample" />
+            <option name="namePattern" value="%s" />
+            <option name="packageName" value="" />
+            <option name="path" value="" />
+            <option name="selectedDataCheckBox" value="true" />
+          </EntityProperties>
+        </option>
+        <option name="mapperProperties">
+          <MapperProperties>
+            <option name="namePattern" value="%sMapper" />
+            <option name="packageName" value="" />
+            <option name="path" value="" />
+            <option name="selectedEnableInsertCheckBox" value="true" />
+            <option name="selectedEnableSelectByPrimaryKeyCheckBox" value="true" />
+            <option name="selectedEnableUpdateByPrimaryKeyCheckBox" value="true" />
+            <option name="superMapperClass" value="" />
+          </MapperProperties>
+        </option>
+        <option name="mapperXmlProperties">
+          <MapperXmlProperties>
+            <option name="namePattern" value="%sMapper" />
+            <option name="path" value="" />
+          </MapperXmlProperties>
+        </option>
+        <option name="serviceImplProperties">
+          <ServiceImplProperties>
+            <option name="namePattern" value="%sServiceImpl" />
+            <option name="packageName" value="" />
+            <option name="path" value="" />
+            <option name="superServiceImplClass" value="" />
+          </ServiceImplProperties>
+        </option>
+        <option name="serviceProperties">
+          <ServiceProperties>
+            <option name="namePattern" value="I%sService" />
+            <option name="packageName" value="" />
+            <option name="path" value="" />
+            <option name="superServiceClass" value="" />
+          </ServiceProperties>
+        </option>
+      </GeneratorProperties>
+    </option>
+  </component>
+</project>
