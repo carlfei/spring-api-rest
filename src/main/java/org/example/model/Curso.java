@@ -21,5 +21,7 @@ public class Curso  {
     private String curso;
     private String tema;
 
+    private boolean ok;
+
 
 }

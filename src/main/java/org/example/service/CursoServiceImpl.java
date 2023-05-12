@@ -4,13 +4,13 @@ import org.example.model.Curso;
 import org.example.repository.CursoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class CursoServiceImpl implements CursoService {
@@ -40,7 +40,8 @@ public class CursoServiceImpl implements CursoService {
 
     @Override
     public List<Curso> findAll(List<Long> ids) {
-        return cursoRepository.findAll((Specification<Curso>) ids);
+
+        return null;
     }
 
     @Override
@@ -50,14 +51,27 @@ public class CursoServiceImpl implements CursoService {
 
 
     @Override
-    public Page<Curso> findAll(Pageable pageable) {
-        return cursoRepository.findAll(pageable);
+    public void delete(Long id) {
     }
 
     @Override
-    public void delete(Long id) {
-//        cursoRepository.delete((long)id);
+    public Map<String, Object> findByPage(int page, int size) {
+        List<Curso> data = new ArrayList<Curso>();
+        Pageable paging = PageRequest.of(page, size);
 
+        Page<Curso> pageTuts = cursoRepository.findByOk(true, paging);
+
+        List<Curso> maperController = new ArrayList<>();
+
+        maperController = pageTuts.getContent();
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("pages", maperController);
+        response.put("currentPage", pageTuts.getNumber());
+        response.put("totalItems", pageTuts.getTotalElements());
+        response.put("totalPages", pageTuts.getTotalPages());
+
+        return response;
     }
 
     @Override
