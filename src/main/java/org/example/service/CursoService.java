@@ -3,8 +3,6 @@ package org.example.service;
 
 import org.example.model.Curso;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
 import java.util.List;
@@ -23,6 +21,7 @@ public interface CursoService {
     Map<String, Object> findByPage(int page, int size);
 
     List<Curso> findTema(String tema);
+
 
     List<Curso> findAll(List<Long> ids);
 

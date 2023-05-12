@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -39,9 +40,19 @@ public class MainController {
     private List<Curso> curso;
 
 
+    private Sort.Direction getSortDirection(String direction) {
+        if (direction.equals("asc")) {
+            return Sort.Direction.ASC;
+        } else if (direction.equals("desc")) {
+            return Sort.Direction.DESC;
+        }
+
+        return Sort.Direction.ASC;
+    }
+
+
     @Operation(summary = "", description = "")
     @GetMapping(path = "/all")
-    //public @ResponseBody Iterable<Curso> getAllUsers() {
     public String getAllUsers() {
 
         curso = (List<Curso>) cursoRepository.findAll();
