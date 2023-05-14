@@ -15,55 +15,36 @@ import org.example.repository.CursoRepository;
 import org.example.service.CursoService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.*;
 
 
 import java.util.*;
 
-
-@Tag(name = "/app")
+//@PreAuthorize("hasRole('ADMIN')")
+//@PreAuthorize("authenticated, hasRole('USER')")
+@Tag(name = MainController.URI)
 @RestController
-@RequestMapping("/app")
+@RequestMapping(MainController.URI)
 @Slf4j
 
 public class MainController {
-    @Autowired
-    private CursoRepository cursoRepository;
+
+    public static final String URI = "/app";
+    public static final String URI2 = "/curso";
+    public static final String URI3 = "/cursos";
+
 
     @Autowired
     private CursoService cursoService;
     private List<Curso> curso;
 
-
-    private Sort.Direction getSortDirection(String direction) {
-        if (direction.equals("asc")) {
-            return Sort.Direction.ASC;
-        } else if (direction.equals("desc")) {
-            return Sort.Direction.DESC;
-        }
-
-        return Sort.Direction.ASC;
-    }
-
-
     @Operation(summary = "", description = "")
-    @GetMapping(path = "/all")
-    public String getAllUsers() {
-
-        curso = (List<Curso>) cursoRepository.findAll();
-        Gson gson = new Gson();
-        String jsonString = gson.toJson(curso);
-        return jsonString.toString();
-    }
-
-
-    @Operation(summary = "", description = "")
-    @PostMapping("/curso")
+    @PostMapping(URI2)
     public Curso save(@RequestBody Curso curso) {
         return cursoService.save(curso);
     }
@@ -71,13 +52,13 @@ public class MainController {
 
     @Parameter(name = "id", description = "", in = ParameterIn.PATH, required = true)
     @Operation(summary = "", description = "")
-    @GetMapping("/curso/{id}")
+    @GetMapping(URI2 + "/{id}")
     public Optional<Curso> getById(@PathVariable(value = "id") Long id) {
         return cursoService.find(id);
     }
 
     @Operation(summary = "", description = "")
-    @GetMapping("/cursos/page")
+    @GetMapping(URI3 + "/page")
     public ResponseEntity<Map<String, Object>> findByPage(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "2") int size) {
@@ -94,14 +75,14 @@ public class MainController {
 
     @Parameter(name = "tema", description = "", in = ParameterIn.PATH, required = true)
     @Operation(summary = "", description = "")
-    @GetMapping("/cursos/{tema}")
+    @GetMapping(URI3 + "/{tema}")
     public List<Curso> findTema(@PathVariable(value = "tema") String tema) {
         return cursoService.findTema(tema);
     }
 
 
     @Operation(summary = "", description = "")
-    @GetMapping("/curso")
+    @GetMapping(URI2)
     public List<Curso> getAll() {
         return cursoService.findAll();
     }
@@ -109,21 +90,21 @@ public class MainController {
 
     @Parameter(name = "id", description = "", in = ParameterIn.PATH, required = true)
     @Operation(summary = "", description = "")
-    @DeleteMapping("/curso/{id}")
+    @DeleteMapping(URI2 + "/{id}")
     public void deleteById(@PathVariable(value = "id") Long id) {
         cursoService.delete(id);
     }
 
 
     @Operation(summary = "", description = "")
-    @DeleteMapping("/curso")
+    @DeleteMapping(URI2)
     public void deleteAll() {
         cursoService.deleteAll();
     }
 
 
     @Operation(summary = "", description = "")
-    @GetMapping("/curso/count")
+    @GetMapping(URI2 + "/count")
     public Long count() {
         return cursoService.count();
     }

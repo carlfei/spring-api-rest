@@ -1,18 +1,16 @@
 package org.example.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "cursos") // This tells Hibernate to make a table out of this class
-public class Curso  {
+@Getter
+@Setter
+@Entity(name = "cursos")
+
+public class Curso {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
