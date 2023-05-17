@@ -84,7 +84,7 @@ public class MainControllerTest {
         String response = responseEntity.getBody();
 
 
-        Curso curso = new Curso(1, "primer", "mates", true);
+        Curso curso = new Curso(1, "mates", "calc", true);
 
         List<Curso> listCurso = new ArrayList<>();
         listCurso.add(curso);
