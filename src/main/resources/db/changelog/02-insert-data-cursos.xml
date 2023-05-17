@@ -7,7 +7,7 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <changeSet id="02" author="dav">
-        <comment>Inserting Authors</comment>
+        <comment>Insert Cursos</comment>
         <insert tableName="cursos">
             <column name="id" valueNumeric="1"/>
             <column name="curso" value="mates"/>

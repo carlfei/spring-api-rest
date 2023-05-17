@@ -7,7 +7,7 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <changeSet id="03" author="dav">
-        <comment>Inserting Books</comment>
+        <comment>Insert Users</comment>
         <insert tableName="users">
             <column name="id" valueNumeric="1"/>
             <column name="name" value="fran"/>
