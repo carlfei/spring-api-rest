@@ -1,0 +1,16 @@
+
+{
+java:S2293;"YReplace the type specification in this constructor call with the diamond operator ("<>").(şú—Àûÿÿÿÿ8øéø™‚1
+
+java:S11866"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(â¥ÿí8Üëø™‚1
+H
+java:S1168,"+Return an empty collection instead of null.(¥¹ï8òìø™‚1
+`
+java:S1854@"CRemove this useless assignment to local variable "maperController".(¡ÊúÀ8•íø™‚1
+Z
+java:S1854;"8Remove this useless assignment to local variable "data".(şú—Àûÿÿÿÿ8–íø™‚1
+K
+java:S1481;")Remove this unused "data" local variable.(şú—Àûÿÿÿÿ8´íø™‚1
+k
+java:S1128
+"NRemove this unused import 'org.springframework.data.jpa.domain.Specification'.(¾ñÕÄ8ğîø™‚1

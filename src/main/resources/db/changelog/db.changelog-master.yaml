@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/01-create-cursos-and-users-schema.xml
+  - include:
+      file: db/changelog/02-insert-data-cursos.xml
+  - include:
+      file: db/changelog/02-insert-data-users.xml

@@ -8,8 +8,8 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
-@Entity(name = "cursos")
-
+@Entity
+@Table(name="CURSOS")
 public class Curso {
 
     @Id

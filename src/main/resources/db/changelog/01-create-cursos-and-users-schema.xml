@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="01" author="dav">
+        <createTable tableName="cursos"
+                     remarks="table cursos">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="curso" type="varchar(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="tema" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ok" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+
+        <createTable tableName="users"
+                     remarks="table users">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_curso" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="users" baseColumnNames="id_curso"
+                                 constraintName="tabla_cruce"
+                                 referencedTableName="cursos" referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>
